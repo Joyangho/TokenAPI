@@ -43,9 +43,9 @@
 ---
 # 파일 설명
 > - `.env` = 지갑키와 API 등의 정보 기입
-    > - privateKey = `웹3 지갑 프라이빗 키`
-    > - url = `https://1rpc.io/holesky`
-    > - ETHERSCAN_API_KEY  = `이더스캔 API KEY`
+  > - privateKey = `웹3 지갑 프라이빗 키`
+  > - url = `https://1rpc.io/holesky`
+  > - ETHERSCAN_API_KEY  = `이더스캔 API KEY`
 > - `contractinfo.js` = 스마트 컨트랙트 연동을 위한 ABI와 contract 주소
 > - `package.json` = 패키지 버전
 > - `script.js` = 서버와 연동하기 위한 script
