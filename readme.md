@@ -42,16 +42,16 @@
 > 5. F12 작업 관리자 네트워크에서 응답 확인
 ---
 # 파일 설명
-> - `.env` = 지갑키와 API 등의 정보 기입
+- `.env` = 지갑키와 API 등의 정보 기입
     > - privateKey = `웹3 지갑 프라이빗 키`
     > - url = `https://1rpc.io/holesky`
     > - ETHERSCAN_API_KEY  = `이더스캔 API KEY`
-> - `contractinfo.js` = 스마트 컨트랙트 연동을 위한 ABI와 contract 주소
-> - `package.json` = 패키지 버전
-> - `script.js` = 서버와 연동하기 위한 script
-> - `server.js` = express.js, ethers.js로 만들어진 이더리움 연동
-> - `index.html` = 웹 테스트를 위한 간단한 html
-> - `requestQueue.json` = 서버 강제 종료시 요청된 데이터 저장
+- `contractinfo.js` = 스마트 컨트랙트 연동을 위한 ABI와 contract 주소
+- `package.json` = 패키지 버전
+- `script.js` = 서버와 연동하기 위한 script
+- `server.js` = express.js, ethers.js로 만들어진 이더리움 연동
+- `index.html` = 웹 테스트를 위한 간단한 html
+- `requestQueue.json` = 서버 강제 종료시 요청된 데이터 저장
 ---
 # 구현 상세 스펙
 - `POST /mint`
