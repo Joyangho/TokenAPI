@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+input,
+button,
+p {
+    margin: 10px;
+}
+
+input,
+button {
+    width: 200px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#history {
+    margin-top: 20px;
+    max-height: 700px;
+    overflow-y: auto;
+    width: 800px;
+    right: 20px;
+    top: 0;
+}

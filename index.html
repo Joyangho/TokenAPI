@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Token</title>
+</head>
+
+<body>
+    <section>
+        <h1>Mint Token</h1>
+        <input type="text" id="addressInput" placeholder="Enter address">
+        <button id="mintButton" onclick="mintToken()">Mint Token</button>
+        <p id="message"></p>
+
+        <h2>Balance</h2>
+        <input type="text" id="balanceInput" placeholder="Enter address">
+        <button onclick="getBalance()">Check Balance</button>
+        <p id="balance"></p>
+
+        <h3>Transaction History</h3>
+        <input type="text" id="historyInput" placeholder="Enter address">
+        <button onclick="getTransactionHistory()">Check Transaction</button>
+        <div id="history"></div>
+    </section>
+    <script src="./script.js"></script>
+    <script src="./css/main.css"></script>
+</body>
+
+</html>
