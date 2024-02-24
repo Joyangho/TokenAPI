@@ -44,6 +44,8 @@ function loadRequestQueue() {
 // 요청 처리 함수
 // queue를 사용해 트랜잭션 요청을 빠르게 n번 클릭하여도 순차적으로 받음
 // nonce random을 사용해 n번을 빠르게 요청하여도 요청값이 겹칠 확률이 드물어 트랜잭션 오류를 방지함
+let sequence = 0; // 전역 변수로 시퀀스를 초기화
+
 async function processRequests() {
     if (isProcessing || requestQueue.length === 0) {
         return;
@@ -53,18 +55,20 @@ async function processRequests() {
     const userAddress = req.query.address;
     res.status(200).json({ message: '요청이 수신되었습니다.' }); // 요청 응답
     try {
-        // 무작위 nonce 생성, nonce 발행은 한계가 있기 때문에 수정
-        const randomNonce = Math.floor(Math.random() * 1000000000000000);
-        // mint 함수 호출 및 생성된 nonce 전달
-        await contract.mint(userAddress, { nonce: randomNonce });
+        // 보안 강화: 랜덤 nonce 제거 및 시퀀스로 대체
+        const currentSequence = sequence++; // 시퀀스 값을 가져오고 증가시킴
+        // mint 함수 호출 및 생성된 시퀀스 전달
+        await contract.mint(userAddress, { sequence: currentSequence });
         console.log('트랜잭션 성공:', userAddress);
     } catch (error) {
-        console.error('트랜잭션 실패:', error);
+        console.error('빠른 요청에 트랜잭션에 실패했지만, 5초 뒤 다시 실행합니다.');
+        setTimeout(processRequests, 5000);
     } finally {
         isProcessing = false;
         processRequests(); // 다음 요청 처리
     }
 }
+
 
 // 요청이 들어올 때 요청을 파일에 저장하고 처리 함수 호출
 app.post('/mint', (req, res) => {
